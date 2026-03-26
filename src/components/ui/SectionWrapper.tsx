@@ -1,0 +1,17 @@
+import type { ReactNode } from 'react'
+
+interface SectionWrapperProps {
+  id: string
+  children: ReactNode
+  className?: string
+}
+
+export function SectionWrapper({ id, children, className = '' }: SectionWrapperProps) {
+  return (
+    <section id={id} className={`relative py-20 sm:py-32 overflow-hidden scroll-mt-12 ${className}`}>
+      <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6">
+        {children}
+      </div>
+    </section>
+  )
+}

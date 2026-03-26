@@ -1,0 +1,152 @@
+@import "tailwindcss";
+@import "@fontsource-variable/inter";
+
+@theme {
+  /* Dark theme base */
+  --color-dark-base: #060B18;
+  --color-dark-surface: #0A1128;
+  --color-dark-card: rgba(15, 25, 55, 0.6);
+  --color-dark-card-border: rgba(255, 255, 255, 0.08);
+
+  /* Brand accent - cobalt blue from logo */
+  --color-accent: #2B7AFF;
+  --color-accent-light: #5B9AFF;
+  --color-accent-glow: rgba(43, 122, 255, 0.4);
+  --color-accent-subtle: rgba(43, 122, 255, 0.1);
+
+  /* Cyan secondary accent */
+  --color-cyan: #00D4FF;
+  --color-cyan-glow: rgba(0, 212, 255, 0.3);
+
+  /* Text */
+  --color-text-primary: #FFFFFF;
+  --color-text-muted: #8494B2;
+  --color-text-accent: #5B9AFF;
+
+  /* Font */
+  --font-sans: 'Inter Variable', 'Inter', system-ui, sans-serif;
+}
+
+/* ===== BASE ===== */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: var(--color-text-muted);
+  background-color: var(--color-dark-base);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== SHIMMER GRADIENT TEXT ===== */
+.text-shimmer {
+  background: linear-gradient(
+    110deg,
+    #FFFFFF 0%,
+    #5B9AFF 25%,
+    #00D4FF 50%,
+    #5B9AFF 75%,
+    #FFFFFF 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% center; }
+  100% { background-position: -200% center; }
+}
+
+/* ===== GLOW BUTTON ===== */
+.btn-glow {
+  position: relative;
+  background: linear-gradient(135deg, #2B7AFF, #0055DD);
+  box-shadow:
+    0 0 20px rgba(43, 122, 255, 0.4),
+    0 0 60px rgba(43, 122, 255, 0.15);
+  transition: all 0.3s ease;
+}
+
+.btn-glow:hover {
+  box-shadow:
+    0 0 30px rgba(43, 122, 255, 0.6),
+    0 0 80px rgba(43, 122, 255, 0.25);
+  transform: translateY(-1px);
+}
+
+/* ===== OUTLINE BUTTON ===== */
+.btn-outline {
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.03);
+  transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+  border-color: rgba(43, 122, 255, 0.5);
+  background: rgba(43, 122, 255, 0.08);
+}
+
+/* ===== GLASSMORPHISM CARD ===== */
+.glass-card {
+  background: rgba(15, 25, 55, 0.5);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+  border-color: rgba(43, 122, 255, 0.2);
+  background: rgba(15, 25, 55, 0.7);
+}
+
+/* ===== BLUR ORBS ===== */
+.blur-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.blur-orb-blue {
+  background: rgba(43, 122, 255, 0.15);
+}
+
+.blur-orb-cyan {
+  background: rgba(0, 212, 255, 0.1);
+}
+
+/* ===== DIVIDER GRADIENT ===== */
+.divider-gradient {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(43, 122, 255, 0.3),
+    transparent
+  );
+}
+
+/* ===== HERO FLOAT ANIMATION ===== */
+@keyframes hero-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+.animate-hero-float {
+  animation: hero-float 5s ease-in-out infinite;
+}
+
+/* ===== GLOW RING ===== */
+.glow-ring {
+  box-shadow:
+    0 0 0 1px rgba(43, 122, 255, 0.2),
+    0 0 20px rgba(43, 122, 255, 0.1);
+}
